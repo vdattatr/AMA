@@ -16,7 +16,6 @@
   --dark: #1A1A2E;
   --cream: #FFFBEF;
   --white: #FFFFFF;
-  --stjude: #E8192C;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -28,6 +27,7 @@ body {
   overflow-x: hidden;
 }
 
+/* ── NOISE TEXTURE OVERLAY ── */
 body::before {
   content: '';
   position: fixed;
@@ -37,6 +37,7 @@ body::before {
   z-index: 999;
 }
 
+/* ── NAV ── */
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -57,7 +58,11 @@ nav {
   letter-spacing: -0.5px;
 }
 .nav-logo span { color: var(--zest); }
-nav ul { list-style: none; display: flex; gap: 2rem; }
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
 nav ul a {
   text-decoration: none;
   font-weight: 600;
@@ -83,6 +88,7 @@ nav ul a:hover { color: var(--zest); }
   color: var(--dark) !important;
 }
 
+/* ── HERO ── */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -94,18 +100,25 @@ nav ul a:hover { color: var(--zest); }
   position: relative;
   overflow: hidden;
 }
-.hero-bg { position: absolute; inset: 0; overflow: hidden; z-index: 0; }
+
+/* Animated citrus slices background */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
 .citrus {
   position: absolute;
   border-radius: 50%;
   opacity: 0.12;
   animation: float linear infinite;
 }
-.citrus:nth-child(1) { width:180px; height:180px; background: var(--lemon); top:-5%; left:5%; animation-duration:18s; }
+.citrus:nth-child(1) { width:180px; height:180px; background: var(--lemon); top:-5%; left:5%; animation-duration:18s; animation-delay:0s; }
 .citrus:nth-child(2) { width:120px; height:120px; background: var(--zest); top:20%; right:3%; animation-duration:14s; animation-delay:-4s; }
-.citrus:nth-child(3) { width:200px; height:200px; background: var(--lemon-deep); bottom:5%; left:15%; animation-duration:20s; animation-delay:-8s; }
+.citrus:nth-child(3) { width:200px; height:200px; background: var(--lemon-deep);bottom:5%;left:15%; animation-duration:20s; animation-delay:-8s; }
 .citrus:nth-child(4) { width:90px; height:90px; background: var(--pink); top:60%; right:12%; animation-duration:12s; animation-delay:-2s; }
-.citrus:nth-child(5) { width:140px; height:140px; background: var(--green); bottom:20%; right:5%; animation-duration:16s; animation-delay:-6s; }
+.citrus:nth-child(5) { width:140px; height:140px; background: var(--green); bottom:20%;right:5%; animation-duration:16s; animation-delay:-6s; }
 @keyframes float {
   0% { transform: translateY(0) rotate(0deg); }
   50% { transform: translateY(-30px) rotate(180deg); }
@@ -114,6 +127,7 @@ nav ul a:hover { color: var(--zest); }
 
 .hero-content { position: relative; z-index: 1; max-width: 800px; }
 
+/* AMA Logo Badge */
 .logo-badge {
   display: inline-flex;
   flex-direction: column;
@@ -128,7 +142,7 @@ nav ul a:hover { color: var(--zest); }
   margin-bottom: 2rem;
   animation: badgePop 0.8s cubic-bezier(0.34,1.56,0.64,1) both;
 }
-.logo-badge .am-text {
+.logo-badge .ama-text {
   font-family: 'Fraunces', serif;
   font-weight: 900;
   font-size: 3rem;
@@ -136,7 +150,7 @@ nav ul a:hover { color: var(--zest); }
   line-height: 1;
   letter-spacing: -2px;
 }
-.logo-badge .am-sub {
+.logo-badge .ama-sub {
   font-size: 0.5rem;
   font-weight: 600;
   color: rgba(255,255,255,0.7);
@@ -167,7 +181,11 @@ h1 {
   margin-bottom: 1.5rem;
   animation: fadeUp 0.7s 0.5s both;
 }
-h1 em { font-style: italic; color: var(--zest); display: block; }
+h1 em {
+  font-style: italic;
+  color: var(--zest);
+  display: block;
+}
 .hero-desc {
   font-size: 1.15rem;
   line-height: 1.7;
@@ -204,6 +222,7 @@ h1 em { font-style: italic; color: var(--zest); display: block; }
 .btn-primary { background: var(--lemon); color: var(--dark); }
 .btn-secondary { background: var(--dark); color: var(--white); }
 
+/* ── RIBBON ── */
 .ribbon {
   background: var(--dark);
   color: var(--lemon);
@@ -224,6 +243,7 @@ h1 em { font-style: italic; color: var(--zest); display: block; }
   to { transform: translateX(-50%); }
 }
 
+/* ── SECTION BASE ── */
 section { padding: 6rem 2rem; }
 .container { max-width: 1100px; margin: 0 auto; }
 .section-label {
@@ -243,12 +263,18 @@ section { padding: 6rem 2rem; }
   margin-bottom: 1.5rem;
 }
 
-.about { background: var(--white); }
+/* ── ABOUT ── */
+.about {
+  background: var(--white);
+}
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
+}
+.about-visual {
+  position: relative;
 }
 .lemon-graphic {
   width: 100%;
@@ -276,7 +302,11 @@ section { padding: 6rem 2rem; }
   margin-bottom: 1.5rem;
 }
 
-.stats { background: var(--dark); color: var(--white); }
+/* ── STATS ── */
+.stats {
+  background: var(--dark);
+  color: var(--white);
+}
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -301,7 +331,11 @@ section { padding: 6rem 2rem; }
   display: block;
 }
 
-.donate { background: var(--cream); position: relative; }
+/* ── DONATE ── */
+.donate {
+  background: var(--cream);
+  position: relative;
+}
 .donate::before {
   content: '';
   position: absolute;
@@ -311,16 +345,16 @@ section { padding: 6rem 2rem; }
 }
 .donate-intro {
   text-align: center;
-  max-width: 620px;
+  max-width: 600px;
   margin: 0 auto 4rem;
 }
 .donate-intro p { font-size: 1.1rem; color: #555; line-height: 1.7; }
 
 .payment-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
-  max-width: 960px;
+  max-width: 700px;
   margin: 0 auto;
 }
 .payment-card {
@@ -354,8 +388,7 @@ section { padding: 6rem 2rem; }
 }
 .zelle-card .payment-icon { background: #6D1ED4; color: white; }
 .venmo-card .payment-icon { background: #3D95CE; color: white; }
-.stjude-card .payment-icon { background: var(--stjude); color: white; font-size: 1.3rem; }
-
+.paypal-card .payment-icon { background: #003087; color: white; }
 .payment-card h3 {
   font-family: 'Fraunces', serif;
   font-size: 1.5rem;
@@ -375,7 +408,7 @@ section { padding: 6rem 2rem; }
   margin-bottom: 1.5rem;
 }
 .payment-btn {
-  display: block;
+  display: inline-block;
   width: 100%;
   padding: 0.7rem;
   border-radius: 50px;
@@ -390,26 +423,7 @@ section { padding: 6rem 2rem; }
 .payment-btn:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--dark); }
 .zelle-card .payment-btn { background: #6D1ED4; color: white; }
 .venmo-card .payment-btn { background: #3D95CE; color: white; }
-.stjude-card .payment-btn { background: var(--stjude); color: white; }
-
-.stjude-banner {
-  background: var(--stjude);
-  color: white;
-  border: 2.5px solid var(--dark);
-  border-radius: 16px;
-  padding: 1.5rem 2rem;
-  text-align: center;
-  max-width: 960px;
-  margin: 2.5rem auto 0;
-  box-shadow: 6px 6px 0 var(--dark);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.2rem;
-  flex-wrap: wrap;
-}
-.stjude-banner .banner-icon { font-size: 2rem; flex-shrink: 0; }
-.stjude-banner p { font-size: 0.95rem; font-weight: 600; line-height: 1.6; margin: 0; }
+.paypal-card .payment-btn { background: #FFC439; color: var(--dark); }
 
 /* Modal */
 .modal-overlay {
@@ -503,12 +517,18 @@ section { padding: 6rem 2rem; }
 }
 .modal .modal-cta:hover { transform: translate(-3px,-3px); box-shadow: 7px 7px 0 var(--dark); }
 
-.how { background: var(--lemon); position: relative; overflow: hidden; }
+/* ── HOW IT WORKS ── */
+.how {
+  background: var(--lemon);
+  position: relative;
+  overflow: hidden;
+}
 .how::after {
   content: '🍋';
   position: absolute;
   font-size: 20rem;
-  right: -4rem; bottom: -4rem;
+  right: -4rem;
+  bottom: -4rem;
   opacity: 0.1;
   pointer-events: none;
 }
@@ -538,12 +558,14 @@ section { padding: 6rem 2rem; }
 .step h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
 .step p { font-size: 0.85rem; color: #666; line-height: 1.5; }
 
+/* ── MISSION ── */
 .mission {
   background: var(--pink);
   color: var(--white);
   text-align: center;
   padding: 5rem 2rem;
 }
+.mission .section-title { letter-spacing: -2px; }
 .mission .section-label { color: rgba(255,255,255,0.7); }
 .mission p {
   font-size: 1.1rem;
@@ -559,6 +581,7 @@ section { padding: 6rem 2rem; }
   box-shadow: 4px 4px 0 rgba(0,0,0,0.3);
 }
 
+/* ── FOOTER ── */
 footer {
   background: var(--dark);
   color: var(--white);
@@ -574,11 +597,13 @@ footer .footer-logo {
   margin-bottom: 0.5rem;
 }
 footer p { font-size: 0.85rem; opacity: 0.5; margin-top: 1.5rem; }
-footer .footer-names { font-size: 0.9rem; opacity: 0.7; margin-top: 0.5rem; }
-
-@media (max-width: 900px) {
-  .payment-grid { grid-template-columns: 1fr 1fr; }
+footer .footer-names {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  margin-top: 0.5rem;
 }
+
+/* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   nav ul { display: none; }
   .about-grid { grid-template-columns: 1fr; gap: 2rem; }
@@ -616,15 +641,14 @@ footer .footer-names { font-size: 0.9rem; opacity: 0.7; margin-top: 0.5rem; }
   </div>
   <div class="hero-content">
     <div class="logo-badge">
-      <span class="am-text">AM</span>
-      <span class="am-sub">Lemonade Stand</span>
+      <span class="ama-text">AM</span>
+      <span class="ama-sub">Lemonade Stand</span>
     </div>
-    <p class="tagline">✨ Ashvika &amp; Meher's ✨</p>
+    <p class="tagline">✨ Ashvika & Meher's ✨</p>
     <h1>Squeeze Out <em>Cancer!</em></h1>
     <p class="hero-desc">
-      Every cup of lemonade sold supports life-saving research at
-      St. Jude Children's Research Hospital. Two best friends, one mission —
-      sweeten the world and fight back.
+      Every cup of lemonade sold supports life-saving cancer research.
+      Two kids, one mission — sweeten the world and fight back.
     </p>
     <div class="hero-btns">
       <a href="#donate" class="btn btn-primary">💛 Donate Now</a>
@@ -636,10 +660,10 @@ footer .footer-names { font-size: 0.9rem; opacity: 0.7; margin-top: 0.5rem; }
 <!-- TICKER -->
 <div class="ribbon">
   <span class="ribbon-track">
-    🍋 Fresh Squeezed Lemonade &nbsp;•&nbsp; 100% Proceeds to St. Jude's &nbsp;•&nbsp;
-    Ashvika &amp; Meher &nbsp;•&nbsp; AM Lemonade Stand &nbsp;•&nbsp;
+    🍋 Fresh Squeezed Lemonade &nbsp;•&nbsp; Contribution to Cancer Research &nbsp;•&nbsp;
+    Ashvika · Meher &nbsp;•&nbsp; AM Lemonade Stand &nbsp;•&nbsp;
     Fight Cancer One Cup at a Time &nbsp;•&nbsp; 🍋 Fresh Squeezed Lemonade &nbsp;•&nbsp;
-    100% Proceeds to St. Jude's &nbsp;•&nbsp; Ashvika &amp; Meher &nbsp;•&nbsp;
+    Contribution to Cancer Research &nbsp;•&nbsp; Ashvika · Meher &nbsp;•&nbsp;
     AM Lemonade Stand &nbsp;•&nbsp; Fight Cancer One Cup at a Time &nbsp;•&nbsp;
   </span>
 </div>
@@ -650,45 +674,52 @@ footer .footer-names { font-size: 0.9rem; opacity: 0.7; margin-top: 0.5rem; }
     <div class="about-grid">
       <div class="about-visual">
         <svg class="lemon-graphic" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          <!-- Stand base -->
           <rect x="80" y="300" width="240" height="16" rx="8" fill="#1A1A2E"/>
           <rect x="110" y="270" width="180" height="36" rx="6" fill="#FFD930" stroke="#1A1A2E" stroke-width="3"/>
+          <!-- Counter -->
           <rect x="60" y="210" width="280" height="70" rx="10" fill="#FFFBEF" stroke="#1A1A2E" stroke-width="3"/>
+          <!-- Sign -->
           <rect x="100" y="120" width="200" height="90" rx="10" fill="#FF6B35" stroke="#1A1A2E" stroke-width="3"/>
-          <text x="200" y="158" text-anchor="middle" fill="white" font-family="Fraunces, serif" font-size="38" font-weight="900">AM</text>
+          <text x="200" y="155" text-anchor="middle" fill="white" font-family="Fraunces, serif" font-size="32" font-weight="900">AM</text>
           <text x="200" y="195" text-anchor="middle" fill="white" font-family="DM Sans, sans-serif" font-size="11" font-weight="700">LEMONADE STAND</text>
+          <!-- Pitcher -->
           <ellipse cx="160" cy="210" rx="28" ry="12" fill="#FFD930" stroke="#1A1A2E" stroke-width="2"/>
           <path d="M132 210 Q130 250 138 260 L182 260 Q190 250 188 210 Z" fill="#FFD930" stroke="#1A1A2E" stroke-width="2"/>
           <path d="M188 220 Q210 225 210 240 Q210 255 188 250" fill="none" stroke="#1A1A2E" stroke-width="2"/>
+          <!-- Cups -->
           <rect x="220" y="225" width="30" height="40" rx="4" fill="white" stroke="#1A1A2E" stroke-width="2"/>
           <rect x="258" y="230" width="30" height="35" rx="4" fill="white" stroke="#1A1A2E" stroke-width="2"/>
+          <!-- Lemons -->
           <ellipse cx="300" cy="165" rx="22" ry="16" fill="#FFD930" stroke="#1A1A2E" stroke-width="2"/>
           <ellipse cx="270" cy="175" rx="18" ry="13" fill="#F5B800" stroke="#1A1A2E" stroke-width="2"/>
+          <!-- Stars -->
           <text x="75" y="100" font-size="24">✨</text>
           <text x="300" y="95" font-size="20">🍋</text>
           <text x="50" y="200" font-size="18">💛</text>
           <text x="330" y="210" font-size="18">🎗️</text>
+          <!-- Poles -->
           <line x1="110" y1="120" x2="110" y2="316" stroke="#1A1A2E" stroke-width="3"/>
           <line x1="290" y1="120" x2="290" y2="316" stroke="#1A1A2E" stroke-width="3"/>
         </svg>
       </div>
       <div class="about-text">
         <p class="section-label">Our Story</p>
-        <h2 class="section-title">Two kids.<br>One big heart.</h2>
-        <div class="names-pill">💛 Ashvika &amp; Meher</div>
+        <h2 class="section-title">Three kids.<br>One big heart.</h2>
+        <div class="names-pill">💛 Ashvika · Meher</div>
         <p>
-          We are two best friends who believe that even the smallest acts of kindness
+          We are two young friends who believe that even the smallest acts of kindness
           can change the world. We started the <strong>AM Lemonade Stand</strong> because
           cancer has touched people we love, and we wanted to do something about it.
         </p>
         <p>
-          It all began one summer afternoon when we decided: instead of just feeling sad,
-          we'd squeeze lemons — literally. We set up our stand, made fresh lemonade,
-          and gave every single cent to kids fighting cancer at St. Jude's.
+          Every cup of lemonade we pour, every donation we receive — our contribution to
+          cancer research. No overhead. No middleman. Just kids squeezing lemons
+          and squeezing out cancer.
         </p>
         <p>
-          Every cup we pour, every donation we receive — 100% goes directly to
-          <strong>St. Jude Children's Research Hospital</strong>. No overhead.
-          No middleman. Just two friends squeezing lemons and squeezing out cancer. 🍋
+          AM stands for <strong>A</strong>shvika and <strong>M</strong>eher —
+          but it also means "hope" in many languages. That's exactly what we're selling. 🍋
         </p>
         <a href="#donate" class="btn btn-primary" style="margin-top:1.5rem; display:inline-block;">Support Our Mission →</a>
       </div>
@@ -701,8 +732,8 @@ footer .footer-names { font-size: 0.9rem; opacity: 0.7; margin-top: 0.5rem; }
   <div class="container">
     <div class="stats-grid">
       <div>
-        <span class="stat-num">100%</span>
-        <span class="stat-label">Proceeds to St. Jude's</span>
+        <span class="stat-num">💛</span>
+        <span class="stat-label">Contribution to Research</span>
       </div>
       <div>
         <span class="stat-num">2</span>
@@ -730,17 +761,17 @@ footer .footer-names { font-size: 0.9rem; opacity: 0.7; margin-top: 0.5rem; }
       <div class="step">
         <div class="step-num">02</div>
         <h3>You Donate 💛</h3>
-        <p>Every cup purchased or dollar donated goes straight to St. Jude's.</p>
+        <p>Every cup purchased or dollar donated is our contribution to cancer research.</p>
       </div>
       <div class="step">
         <div class="step-num">03</div>
         <h3>We Give 🎗️</h3>
-        <p>100% of funds go directly to St. Jude Children's Research Hospital.</p>
+        <p>All funds are donated as our contribution to cancer research organizations.</p>
       </div>
       <div class="step">
         <div class="step-num">04</div>
         <h3>Hope Grows 🌱</h3>
-        <p>Your generosity funds breakthroughs that save kids' lives.</p>
+        <p>Your generosity fuels breakthroughs that save lives.</p>
       </div>
     </div>
   </div>
@@ -753,9 +784,9 @@ footer .footer-names { font-size: 0.9rem; opacity: 0.7; margin-top: 0.5rem; }
       <p class="section-label">💛 Make a Difference</p>
       <h2 class="section-title">Every dollar counts.</h2>
       <p>
-        Can't make it to the stand in person? No problem! Donate digitally through
-        Zelle or Venmo — or give directly to St. Jude Children's Research Hospital.
-        Every single cent goes to helping kids fight cancer.
+        Can't make it to the stand in person? No problem!
+        Donate digitally through your preferred payment method.
+        It takes 30 seconds and means everything to us.
       </p>
     </div>
 
@@ -765,8 +796,8 @@ footer .footer-names { font-size: 0.9rem; opacity: 0.7; margin-top: 0.5rem; }
         <div class="payment-icon">Z</div>
         <h3>Zelle</h3>
         <p class="handle">📞 (407) 687-5673</p>
-        <p>Fast, free, and directly from your bank. No fees — more money for St. Jude's!</p>
-        <span class="payment-btn">Donate via Zelle →</span>
+        <p>Fast, free, and directly from your bank. No fees — more money for research!</p>
+        <span class="payment-btn" style="display:block;">Donate via Zelle →</span>
       </div>
 
       <!-- VENMO -->
@@ -775,30 +806,12 @@ footer .footer-names { font-size: 0.9rem; opacity: 0.7; margin-top: 0.5rem; }
         <h3>Venmo</h3>
         <p class="handle">@vdattatr</p>
         <p>Quick and easy. Add a 🍋 emoji in the note and we'll love you forever!</p>
-        <span class="payment-btn">Donate via Venmo →</span>
+        <span class="payment-btn" style="display:block;">Donate via Venmo →</span>
       </div>
-
-      <!-- ST. JUDE'S DIRECT -->
-      <a class="payment-card stjude-card" href="https://www.stjude.org/donate/donate-to-st-jude.html" target="_blank" rel="noopener">
-        <div class="payment-icon">❤️</div>
-        <h3>St. Jude's</h3>
-        <p class="handle">stjude.org/donate</p>
-        <p>Give directly to St. Jude Children's Research Hospital and fund cures for kids with cancer worldwide.</p>
-        <span class="payment-btn">Donate to St. Jude's →</span>
-      </a>
     </div>
 
-    <div class="stjude-banner">
-      <span class="banner-icon">🏥</span>
-      <p>
-        <strong>Why St. Jude Children's Research Hospital?</strong><br>
-        Families never receive a bill for treatment, travel, housing, or food —
-        so they can focus on what matters most: helping their child live.
-      </p>
-    </div>
-
-    <p style="text-align:center; margin-top:2rem; font-size:0.85rem; color:#888;">
-      🔒 All donations are secure. Please include your name so we can thank you!<br>
+    <p style="text-align:center; margin-top:2.5rem; font-size:0.85rem; color:#888;">
+      🔒 All donations are secure. Please include your name so we can thank you!
       Questions? Reach us on Venmo <strong>@vdattatr</strong> or Zelle <strong>(407) 687-5673</strong>
     </p>
   </div>
@@ -811,8 +824,8 @@ footer .footer-names { font-size: 0.9rem; opacity: 0.7; margin-top: 0.5rem; }
     <h2 class="section-title" style="color:white;">Together, we can<br>beat cancer.</h2>
     <p>
       Cancer doesn't wait. Neither do we. Join Ashvika and Meher
-      in their mission to fund the research that will one day eliminate this disease —
-      through St. Jude Children's Research Hospital. One lemonade at a time.
+      in their mission to fund the research that will one day eliminate this disease.
+      One lemonade at a time.
     </p>
     <a href="#donate" class="btn btn-primary">💛 Donate Today</a>
   </div>
@@ -822,7 +835,7 @@ footer .footer-names { font-size: 0.9rem; opacity: 0.7; margin-top: 0.5rem; }
 <footer>
   <div class="footer-logo">AM 🍋</div>
   <div class="footer-names">Ashvika · Meher</div>
-  <p>AM Lemonade Stand · Fighting cancer one cup at a time · 100% for St. Jude Children's Research Hospital</p>
+  <p>AM Lemonade Stand · Fighting cancer one cup at a time · Contribution to cancer research</p>
   <p>© 2025 AM Lemonade Stand. Made with 💛 and lots of lemons.</p>
 </footer>
 
@@ -837,7 +850,7 @@ footer .footer-names { font-size: 0.9rem; opacity: 0.7; margin-top: 0.5rem; }
       <small>Open your bank app → Send Money with Zelle</small>
     </div>
     <div class="handle-big">📞 (407) 687-5673</div>
-    <p>Open your bank app → Send Money with Zelle → Enter <strong>(407) 687-5673</strong> → Choose amount → Send! No fees, and every cent goes to St. Jude's.</p>
+    <p>Open your bank app → Send Money with Zelle → Enter phone number <strong>(407) 687-5673</strong> → Choose amount → Send! No fees, fast, and contribution goes to cancer research.</p>
     <a href="https://www.zellepay.com" target="_blank" class="modal-cta" style="background:#6D1ED4; color:white; border-color:#6D1ED4;">Open Zelle App →</a>
   </div>
 </div>
@@ -852,7 +865,7 @@ footer .footer-names { font-size: 0.9rem; opacity: 0.7; margin-top: 0.5rem; }
       <small>Search @vdattatr in the Venmo app</small>
     </div>
     <div class="handle-big">@vdattatr</div>
-    <p>Search <strong>@vdattatr</strong> in Venmo, tap Pay, enter your amount, add 🍋 "AM Lemonade Stand – St. Jude's" in the note, and hit Send!</p>
+    <p>Search <strong>@vdattatr</strong> in Venmo, tap Pay, enter your amount, add a 🍋 and "AMA Cancer Research" in the note, and hit Send. Easy as squeezing a lemon!</p>
     <a href="https://venmo.com/vdattatr" target="_blank" class="modal-cta" style="background:#3D95CE; color:white; border-color:#3D95CE;">Open Venmo →</a>
   </div>
 </div>
