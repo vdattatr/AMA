@@ -352,9 +352,9 @@ section { padding: 6rem 2rem; }
 
 .payment-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  max-width: 700px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 .payment-card {
@@ -388,7 +388,7 @@ section { padding: 6rem 2rem; }
 }
 .zelle-card .payment-icon { background: #6D1ED4; color: white; }
 .venmo-card .payment-icon { background: #3D95CE; color: white; }
-.paypal-card .payment-icon { background: #003087; color: white; }
+.stjude-card .payment-icon { background: #D01A1A; color: white; font-size: 2rem; }
 .payment-card h3 {
   font-family: 'Fraunces', serif;
   font-size: 1.5rem;
@@ -423,7 +423,7 @@ section { padding: 6rem 2rem; }
 .payment-btn:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--dark); }
 .zelle-card .payment-btn { background: #6D1ED4; color: white; }
 .venmo-card .payment-btn { background: #3D95CE; color: white; }
-.paypal-card .payment-btn { background: #FFC439; color: var(--dark); }
+.stjude-card .payment-btn { background: #D01A1A; color: white; }
 
 /* Modal */
 .modal-overlay {
@@ -808,6 +808,15 @@ footer .footer-names {
         <p>Quick and easy. Add a 🍋 emoji in the note and we'll love you forever!</p>
         <span class="payment-btn" style="display:block;">Donate via Venmo →</span>
       </div>
+
+      <!-- ST. JUDE -->
+      <a class="payment-card stjude-card" href="https://www.stjude.org/donate/donate-to-st-jude.html?frequency_selected=1" target="_blank" rel="noopener noreferrer">
+        <div class="payment-icon">❤️</div>
+        <h3>St. Jude</h3>
+        <p class="handle">stjude.org</p>
+        <p>Donate directly to St. Jude Children's Research Hospital — fighting childhood cancer since 1962.</p>
+        <span class="payment-btn" style="display:block;">Donate to St. Jude →</span>
+      </a>
     </div>
 
     <p style="text-align:center; margin-top:2.5rem; font-size:0.85rem; color:#888;">
